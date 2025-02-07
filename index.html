@@ -3,25 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Login</title>
+    <title>Página de Veículos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #7c9cb6;
+            background-color: #f4f4f4;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            flex-direction: column;
         }
-        .login-container {
+        .container {
             background-color: white;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 350px;
+            margin-bottom: 30px;
         }
-        .login-container h2 {
+        .container h2 {
             text-align: center;
             color: #333;
         }
@@ -42,26 +44,58 @@
             cursor: pointer;
         }
         .btn:hover {
-            background-color: #942727;
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
 
-    <header style="background-color: #4CAF50; color: white; padding: 10px 0; text-align: center;">
-        <h1>Bem-vindo ao Sistema</h1>
+    <header style="background-color: #4CAF50; color: white; padding: 10px 0; text-align: center; width: 100%;">
+        <h1>Gestão de Veículos</h1>
     </header>
 
-    <div class="login-container">
-        <h2>Login</h2>
-        <form action="/login" method="POST">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" class="input-field" required>
+    <!-- Formulário de Inclusão de Veículo -->
+    <div class="container">
+        <h2>Incluir Veículo</h2>
+        <form action="/incluir-veiculo" method="POST">
+            <label for="cor">Cor:</label>
+            <input type="text" id="cor" name="cor" class="input-field" required>
 
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" class="input-field" required>
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" class="input-field" required>
 
-            <button type="submit" class="btn">Entrar</button>
+            <label for="placa">Placa:</label>
+            <input type="text" id="placa" name="placa" class="input-field" required>
+
+            <button type="submit" class="btn">Incluir Veículo</button>
+        </form>
+    </div>
+
+    <!-- Formulário de Alteração de Veículo -->
+    <div class="container">
+        <h2>Alterar Veículo</h2>
+        <form action="/alterar-veiculo" method="POST">
+            <label for="placa-alterar">Placa do Veículo:</label>
+            <input type="text" id="placa-alterar" name="placa" class="input-field" required>
+
+            <label for="nova-cor">Nova Cor:</label>
+            <input type="text" id="nova-cor" name="nova-cor" class="input-field">
+
+            <label for="novo-modelo">Novo Modelo:</label>
+            <input type="text" id="novo-modelo" name="novo-modelo" class="input-field">
+
+            <button type="submit" class="btn">Alterar Veículo</button>
+        </form>
+    </div>
+
+    <!-- Formulário de Exclusão de Veículo -->
+    <div class="container">
+        <h2>Excluir Veículo</h2>
+        <form action="/excluir-veiculo" method="POST">
+            <label for="placa-excluir">Placa do Veículo:</label>
+            <input type="text" id="placa-excluir" name="placa" class="input-field" required>
+
+            <button type="submit" class="btn" style="background-color: #f44336;">Excluir Veículo</button>
         </form>
     </div>
 
